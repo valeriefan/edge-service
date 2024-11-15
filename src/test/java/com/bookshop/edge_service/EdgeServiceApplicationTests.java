@@ -3,11 +3,35 @@ package com.bookshop.edge_service;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+import org.testcontainers.containers.GenericContainer;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
+import org.testcontainers.utility.DockerImageName;
+import org.springframework.test.context.DynamicPropertyRegistry;
+import org.springframework.test.context.DynamicPropertySource;
+
+@SpringBootTest(
+		webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
+)
+@Testcontainers
 class EdgeServiceApplicationTests {
 
-	@Test
-	void contextLoads() {
+	private static final int REDIS_PORT = 6379;
+
+	@Container
+	static GenericContainer<?> redis =
+			new GenericContainer<>(DockerImageName.parse("redis:7.0"))
+					.withExposedPorts(REDIS_PORT);
+
+	@DynamicPropertySource
+	static void redisProperties(DynamicPropertyRegistry registry) {
+		registry.add("spring.redis.host",
+				() -> redis.getHost());
+		registry.add("spring.redis.port",
+				() -> redis.getMappedPort(REDIS_PORT));
 	}
 
+	@Test
+	void verifyThatSpringContextLoads() {
+	}
 }

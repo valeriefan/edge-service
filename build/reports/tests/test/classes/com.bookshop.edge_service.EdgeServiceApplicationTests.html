@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - EdgeServiceApplicationTests</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>EdgeServiceApplicationTests</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.bookshop.edge_service.html">com.bookshop.edge_service</a> &gt; EdgeServiceApplicationTests</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.362s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">verifyThatSpringContextLoads()</td>
+<td class="success">0.362s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>19:32:11.412 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.bookshop.edge_service.EdgeServiceApplicationTests]: EdgeServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+19:32:11.451 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.bookshop.edge_service.EdgeServiceApplication for test class com.bookshop.edge_service.EdgeServiceApplicationTests
+19:32:11.493 [Test worker] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+19:32:11.504 [Test worker] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.UnixSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+19:32:11.651 [Test worker] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Unix socket (unix:///var/run/docker.sock)
+19:32:11.651 [Test worker] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+19:32:11.663 [Test worker] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+  Server Version: 26.1.4
+  API Version: 1.45
+  Operating System: Docker Desktop
+  Total Memory: 11952 MB
+19:32:11.686 [Test worker] INFO &#x1f433; [testcontainers/ryuk:0.3.3] -- Pulling docker image: testcontainers/ryuk:0.3.3. Please be patient; this may take some time but only needs to be done once.
+19:32:14.991 [docker-java-stream--1906304878] INFO &#x1f433; [testcontainers/ryuk:0.3.3] -- Starting to pull image
+19:32:15.012 [docker-java-stream--1906304878] INFO &#x1f433; [testcontainers/ryuk:0.3.3] -- Pulling image layers:  0 pending,  0 downloaded,  0 extracted, (0 bytes/0 bytes)
+19:32:16.624 [docker-java-stream--1906304878] INFO &#x1f433; [testcontainers/ryuk:0.3.3] -- Pulling image layers:  2 pending,  1 downloaded,  0 extracted, (274 KB/? MB)
+19:32:17.539 [docker-java-stream--1906304878] INFO &#x1f433; [testcontainers/ryuk:0.3.3] -- Pulling image layers:  1 pending,  2 downloaded,  0 extracted, (3 MB/? MB)
+19:32:17.838 [docker-java-stream--1906304878] INFO &#x1f433; [testcontainers/ryuk:0.3.3] -- Pulling image layers:  0 pending,  3 downloaded,  0 extracted, (4 MB/4 MB)
+19:32:17.936 [docker-java-stream--1906304878] INFO &#x1f433; [testcontainers/ryuk:0.3.3] -- Pulling image layers:  0 pending,  3 downloaded,  1 extracted, (4 MB/4 MB)
+19:32:17.985 [docker-java-stream--1906304878] INFO &#x1f433; [testcontainers/ryuk:0.3.3] -- Pulling image layers:  0 pending,  3 downloaded,  2 extracted, (4 MB/4 MB)
+19:32:18.019 [docker-java-stream--1906304878] INFO &#x1f433; [testcontainers/ryuk:0.3.3] -- Pulling image layers:  0 pending,  3 downloaded,  3 extracted, (4 MB/4 MB)
+19:32:18.025 [docker-java-stream--1906304878] INFO &#x1f433; [testcontainers/ryuk:0.3.3] -- Pull complete. 3 layers, pulled in 3s (downloaded 4 MB at 1 MB/s)
+19:32:18.049 [Test worker] INFO &#x1f433; [testcontainers/ryuk:0.3.3] -- Creating container for image: testcontainers/ryuk:0.3.3
+19:32:18.128 [Test worker] INFO &#x1f433; [testcontainers/ryuk:0.3.3] -- Container testcontainers/ryuk:0.3.3 is starting: f103e0e4fca1b66a916826944584cabbb52a0161a066a9d51eddffb6b70e575a
+19:32:18.340 [Test worker] INFO &#x1f433; [testcontainers/ryuk:0.3.3] -- Container testcontainers/ryuk:0.3.3 started in PT6.674374S
+19:32:18.348 [Test worker] INFO org.testcontainers.utility.RyukResourceReaper -- Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+19:32:18.348 [Test worker] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+19:32:18.349 [Test worker] INFO org.testcontainers.DockerClientFactory -- ✔︎ Docker server version should be at least 1.6.0
+19:32:18.352 [Test worker] INFO &#x1f433; [redis:7.0] -- Pulling docker image: redis:7.0. Please be patient; this may take some time but only needs to be done once.
+19:32:21.372 [docker-java-stream--906343718] INFO &#x1f433; [redis:7.0] -- Starting to pull image
+19:32:21.372 [docker-java-stream--906343718] INFO &#x1f433; [redis:7.0] -- Pulling image layers:  0 pending,  0 downloaded,  0 extracted, (0 bytes/0 bytes)
+19:32:23.005 [docker-java-stream--906343718] INFO &#x1f433; [redis:7.0] -- Pulling image layers:  7 pending,  1 downloaded,  0 extracted, (1 KB/? MB)
+19:32:23.036 [docker-java-stream--906343718] INFO &#x1f433; [redis:7.0] -- Pulling image layers:  6 pending,  2 downloaded,  0 extracted, (1 KB/? MB)
+19:32:25.914 [docker-java-stream--906343718] INFO &#x1f433; [redis:7.0] -- Pulling image layers:  5 pending,  3 downloaded,  0 extracted, (19 MB/? MB)
+19:32:26.971 [docker-java-stream--906343718] INFO &#x1f433; [redis:7.0] -- Pulling image layers:  4 pending,  4 downloaded,  0 extracted, (28 MB/? MB)
+19:32:27.772 [docker-java-stream--906343718] INFO &#x1f433; [redis:7.0] -- Pulling image layers:  3 pending,  5 downloaded,  0 extracted, (34 MB/? MB)
+19:32:27.888 [docker-java-stream--906343718] INFO &#x1f433; [redis:7.0] -- Pulling image layers:  2 pending,  6 downloaded,  0 extracted, (34 MB/? MB)
+19:32:28.568 [docker-java-stream--906343718] INFO &#x1f433; [redis:7.0] -- Pulling image layers:  2 pending,  6 downloaded,  1 extracted, (37 MB/? MB)
+19:32:28.577 [docker-java-stream--906343718] INFO &#x1f433; [redis:7.0] -- Pulling image layers:  2 pending,  6 downloaded,  2 extracted, (37 MB/? MB)
+19:32:28.584 [docker-java-stream--906343718] INFO &#x1f433; [redis:7.0] -- Pulling image layers:  2 pending,  6 downloaded,  3 extracted, (37 MB/? MB)
+19:32:28.602 [docker-java-stream--906343718] INFO &#x1f433; [redis:7.0] -- Pulling image layers:  1 pending,  7 downloaded,  3 extracted, (37 MB/? MB)
+19:32:28.605 [docker-java-stream--906343718] INFO &#x1f433; [redis:7.0] -- Pulling image layers:  1 pending,  7 downloaded,  4 extracted, (37 MB/? MB)
+19:32:28.922 [docker-java-stream--906343718] INFO &#x1f433; [redis:7.0] -- Pulling image layers:  0 pending,  8 downloaded,  4 extracted, (39 MB/40 MB)
+19:32:29.058 [docker-java-stream--906343718] INFO &#x1f433; [redis:7.0] -- Pulling image layers:  0 pending,  8 downloaded,  5 extracted, (40 MB/40 MB)
+19:32:29.064 [docker-java-stream--906343718] INFO &#x1f433; [redis:7.0] -- Pulling image layers:  0 pending,  8 downloaded,  6 extracted, (40 MB/40 MB)
+19:32:29.071 [docker-java-stream--906343718] INFO &#x1f433; [redis:7.0] -- Pulling image layers:  0 pending,  8 downloaded,  7 extracted, (40 MB/40 MB)
+19:32:29.079 [docker-java-stream--906343718] INFO &#x1f433; [redis:7.0] -- Pulling image layers:  0 pending,  8 downloaded,  8 extracted, (40 MB/40 MB)
+19:32:29.085 [docker-java-stream--906343718] INFO &#x1f433; [redis:7.0] -- Pull complete. 8 layers, pulled in 7s (downloaded 40 MB at 5 MB/s)
+19:32:29.087 [Test worker] INFO &#x1f433; [redis:7.0] -- Creating container for image: redis:7.0
+19:32:29.176 [Test worker] INFO &#x1f433; [redis:7.0] -- Container redis:7.0 is starting: ca26745c9a2bfe2497cbe10c923935b84400c5025ec8870be093b708f76e0121
+19:32:29.383 [Test worker] INFO &#x1f433; [redis:7.0] -- Container redis:7.0 started in PT11.033752S
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.5)
+
+2024-11-15T19:32:29.576+08:00  INFO 58006 --- [edge-service] [    Test worker] c.b.e.EdgeServiceApplicationTests        : Starting EdgeServiceApplicationTests using Java 17.0.13 with PID 58006 (started by valeriefan in /Users/valeriefan/Desktop/bookshop/edge-service)
+2024-11-15T19:32:29.577+08:00  INFO 58006 --- [edge-service] [    Test worker] c.b.e.EdgeServiceApplicationTests        : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2024-11-15T19:32:29.886+08:00 DEBUG 58006 --- [edge-service] [    Test worker] i.g.r.s.u.AspectJOnClasspathCondition    : Aspects are not activated because AspectJ is not on the classpath.
+2024-11-15T19:32:29.886+08:00 DEBUG 58006 --- [edge-service] [    Test worker] i.g.r.s.u.AspectJOnClasspathCondition    : Aspects are not activated because AspectJ is not on the classpath.
+2024-11-15T19:32:29.886+08:00 DEBUG 58006 --- [edge-service] [    Test worker] i.g.r.s.u.RxJava2OnClasspathCondition    : RxJava2 related Aspect extensions are not activated, because RxJava2 is not on the classpath.
+2024-11-15T19:32:29.893+08:00 DEBUG 58006 --- [edge-service] [    Test worker] i.g.r.s.u.AspectJOnClasspathCondition    : Aspects are not activated because AspectJ is not on the classpath.
+2024-11-15T19:32:29.894+08:00 DEBUG 58006 --- [edge-service] [    Test worker] i.g.r.s.u.RxJava2OnClasspathCondition    : RxJava2 related Aspect extensions are not activated, because RxJava2 is not on the classpath.
+2024-11-15T19:32:29.894+08:00 DEBUG 58006 --- [edge-service] [    Test worker] i.g.r.s.u.AspectJOnClasspathCondition    : Aspects are not activated because AspectJ is not on the classpath.
+2024-11-15T19:32:29.906+08:00 DEBUG 58006 --- [edge-service] [    Test worker] i.g.r.s.u.AspectJOnClasspathCondition    : Aspects are not activated because AspectJ is not on the classpath.
+2024-11-15T19:32:29.907+08:00 DEBUG 58006 --- [edge-service] [    Test worker] i.g.r.s.u.RxJava2OnClasspathCondition    : RxJava2 related Aspect extensions are not activated, because RxJava2 is not on the classpath.
+2024-11-15T19:32:29.907+08:00 DEBUG 58006 --- [edge-service] [    Test worker] i.g.r.s.u.AspectJOnClasspathCondition    : Aspects are not activated because AspectJ is not on the classpath.
+2024-11-15T19:32:29.913+08:00 DEBUG 58006 --- [edge-service] [    Test worker] i.g.r.s.u.AspectJOnClasspathCondition    : Aspects are not activated because AspectJ is not on the classpath.
+2024-11-15T19:32:29.914+08:00 DEBUG 58006 --- [edge-service] [    Test worker] i.g.r.s.u.RxJava2OnClasspathCondition    : RxJava2 related Aspect extensions are not activated, because RxJava2 is not on the classpath.
+2024-11-15T19:32:29.914+08:00 DEBUG 58006 --- [edge-service] [    Test worker] i.g.r.s.u.AspectJOnClasspathCondition    : Aspects are not activated because AspectJ is not on the classpath.
+2024-11-15T19:32:29.920+08:00 DEBUG 58006 --- [edge-service] [    Test worker] i.g.r.s.u.AspectJOnClasspathCondition    : Aspects are not activated because AspectJ is not on the classpath.
+2024-11-15T19:32:29.920+08:00 DEBUG 58006 --- [edge-service] [    Test worker] i.g.r.s.u.RxJava2OnClasspathCondition    : RxJava2 related Aspect extensions are not activated, because RxJava2 is not on the classpath.
+2024-11-15T19:32:29.921+08:00 DEBUG 58006 --- [edge-service] [    Test worker] i.g.r.s.u.AspectJOnClasspathCondition    : Aspects are not activated because AspectJ is not on the classpath.
+2024-11-15T19:32:29.926+08:00 DEBUG 58006 --- [edge-service] [    Test worker] i.g.r.s.u.AspectJOnClasspathCondition    : Aspects are not activated because AspectJ is not on the classpath.
+2024-11-15T19:32:29.926+08:00 DEBUG 58006 --- [edge-service] [    Test worker] i.g.r.s.u.RxJava2OnClasspathCondition    : RxJava2 related Aspect extensions are not activated, because RxJava2 is not on the classpath.
+2024-11-15T19:32:29.926+08:00 DEBUG 58006 --- [edge-service] [    Test worker] i.g.r.s.u.AspectJOnClasspathCondition    : Aspects are not activated because AspectJ is not on the classpath.
+2024-11-15T19:32:30.087+08:00  INFO 58006 --- [edge-service] [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=95559e7a-c6f1-3bb2-8e38-a56a7794e228
+2024-11-15T19:32:30.554+08:00  INFO 58006 --- [edge-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [After]
+2024-11-15T19:32:30.554+08:00  INFO 58006 --- [edge-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Before]
+2024-11-15T19:32:30.554+08:00  INFO 58006 --- [edge-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Between]
+2024-11-15T19:32:30.554+08:00  INFO 58006 --- [edge-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Cookie]
+2024-11-15T19:32:30.554+08:00  INFO 58006 --- [edge-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Header]
+2024-11-15T19:32:30.554+08:00  INFO 58006 --- [edge-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Host]
+2024-11-15T19:32:30.554+08:00  INFO 58006 --- [edge-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Method]
+2024-11-15T19:32:30.554+08:00  INFO 58006 --- [edge-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Path]
+2024-11-15T19:32:30.554+08:00  INFO 58006 --- [edge-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Query]
+2024-11-15T19:32:30.554+08:00  INFO 58006 --- [edge-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [ReadBody]
+2024-11-15T19:32:30.554+08:00  INFO 58006 --- [edge-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [RemoteAddr]
+2024-11-15T19:32:30.554+08:00  INFO 58006 --- [edge-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2024-11-15T19:32:30.554+08:00  INFO 58006 --- [edge-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Weight]
+2024-11-15T19:32:30.554+08:00  INFO 58006 --- [edge-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2024-11-15T19:32:30.674+08:00  INFO 58006 --- [edge-service] [    Test worker] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 51317 (http)
+2024-11-15T19:32:30.713+08:00  INFO 58006 --- [edge-service] [    Test worker] c.b.e.EdgeServiceApplicationTests        : Started EdgeServiceApplicationTests in 1.305 seconds (process running for 19.599)
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.10.2</a> at Nov 15, 2024, 7:32:33 PM</p>
+</div>
+</div>
+</body>
+</html>
