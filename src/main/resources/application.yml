@@ -17,7 +17,69 @@ spring:
           uri: ${CATALOG_SERVICE_URL:http://localhost:9001}/houses
           predicates:
             - Path=/houses/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: catalogCircuitBreaker
+                fallbackUri: forward:/catalog-fallback
         - id: order-route
           uri: ${BOOKING_SERVICE_URL:http://localhost:9002}/bookings
           predicates:
             - Path=/bookings/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: bookingCircuitBreaker
+      httpclient:
+        connect-timeout: 5000
+        response-timeout: 5s
+        pool:
+          type: elastic
+          max-idle-time: 15s
+          max-life-time: 60s
+      default-filters:
+        - name: Retry
+          args:
+            retries: 3
+            methods: GET
+            series: SERVER_ERROR
+            exceptions: java.io.IOException, java.util.concurrent.TimeoutException
+            backoff:
+              firstBackoff: 50ms
+              maxBackOff: 500ms
+              factor: 2
+              basedOnPreviousValue: false
+        - name: RequestRateLimiter
+          args:
+            redis-rate-limiter:
+              replenishRate: 10
+              burstCapacity: 20
+              requestedTokens: 1
+        - SaveSession
+  session:
+    timeout: 10m
+    redis:
+      namespace: rentsphere:edge
+  data:
+    redis:
+      connect-timeout: 2s
+      host: localhost
+      port: 6379
+      timeout: 1s
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        slidingWindowSize: 20
+        permittedNumberOfCallsInHalfOpenState: 5
+        failureRateThreshold: 50
+        waitDurationInOpenState: 15000
+  timelimiter:
+    configs:
+      default:
+        timeoutDuration: 5s
+
+logging:
+  level:
+    io.github.resilience4j: DEBUG
