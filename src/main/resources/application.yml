@@ -8,9 +8,21 @@ server:
 spring:
   application:
     name: edge-service
+  config:
+    import: "optional:configserver:"
   lifecycle:
     timeout-per-shutdown-phase: 15s
   cloud:
+    config:
+      uri: http://localhost:8888
+      request-connect-timeout: 5000 # 5s
+      request-read-timeout: 5000 # 5s
+      fail-fast: false # In production, set to true
+      retry:
+        max-attempts: 6
+        initial-interval: 1000 # 1s
+        max-interval: 2000 # 2s
+        multiplier: 1.1
     gateway:
       routes:
         - id: spa-route
@@ -60,6 +72,7 @@ spring:
               burstCapacity: 20
               requestedTokens: 1
         - SaveSession
+        - TokenRelay
   session:
     timeout: 10m
     redis:
@@ -67,9 +80,19 @@ spring:
   data:
     redis:
       connect-timeout: 2s
-      host: localhost
+      host: rentsphere-redis  # docker: localhost, k8s: rentsphere-redis
       port: 6379
-      timeout: 1s
+      timeout: 5s
+      lettuce:
+        pool:
+          max-active: 20
+          max-wait: -1ms
+          max-idle: 10
+          min-idle: 2
+        cluster:
+          refresh:
+            adaptive: true
+            period: 20
   security:
     oauth2:
       client:
@@ -79,7 +102,7 @@ spring:
             client-id: edge-service
             client-secret: rentsphere-keycloak-secret
             provider: keycloak
-            scope: openid
+            scope: openid, roles
         provider:
           keycloak:
             issuer-uri: http://localhost:8080/realms/RentSphere
@@ -98,5 +121,34 @@ resilience4j:
         timeoutDuration: 5s
 
 logging:
+  group:
+    circuitbreaker: io.github.resilience4j, org.springframework.cloud.circuitbreaker
   level:
-    org.springframework.security: DEBUG
+    circuitbreaker: info
+  pattern:
+    level: "%5p [${spring.application.name},%X{trace_id},%X{span_id}]"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: configprops, env, flyway, health, heapdump, info, loggers, mappings, prometheus
+  endpoint:
+    health:
+      show-details: always
+      show-components: always
+      probes:
+        enabled: true
+  metrics:
+    tags:
+      application: ${spring.application.name}
+  info:
+    env:
+      enabled: true
+    java:
+      enabled: true
+    os:
+      enabled: true
+
+info:
+  system: RentSphere

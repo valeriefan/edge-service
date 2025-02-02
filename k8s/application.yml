@@ -1,0 +1,9 @@
+spring:
+  redis:
+    host: rentsphere-redis
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://rentsphere-keycloak/realms/RentSphere

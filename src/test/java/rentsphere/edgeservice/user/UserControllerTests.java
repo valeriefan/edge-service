@@ -15,6 +15,7 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.springframework.security.test.web.reactive.server.SecurityMockServerConfigurers.mockOidcLogin;
 
 @WebFluxTest(UserController.class)
 @Import(rentsphere.edgeservice.config.SecurityConfig.class)
@@ -49,11 +50,17 @@ class UserControllerTests {
                 .value(user -> assertThat(user).isEqualTo(expectedUser));
     }
 
-    private SecurityMockServerConfigurers.OidcLoginMutator configureMockOidcLogin(User expectedUser) {
-        return SecurityMockServerConfigurers.mockOidcLogin().idToken(builder -> {
-            builder.claim(StandardClaimNames.PREFERRED_USERNAME, expectedUser.username());
-            builder.claim(StandardClaimNames.GIVEN_NAME, expectedUser.firstName());
-            builder.claim(StandardClaimNames.FAMILY_NAME, expectedUser.lastName());
+    private SecurityMockServerConfigurers.OidcLoginMutator
+    configureMockOidcLogin(User expectedUser)
+    {
+        return mockOidcLogin().idToken(builder -> {
+            builder.claim(StandardClaimNames.PREFERRED_USERNAME,
+                    expectedUser.username());
+            builder.claim(StandardClaimNames.GIVEN_NAME,
+                    expectedUser.firstName());
+            builder.claim(StandardClaimNames.FAMILY_NAME,
+                    expectedUser.lastName());
+            builder.claim("roles", expectedUser.roles());
         });
     }
 

@@ -1,6 +1,8 @@
 package rentsphere.edgeservice.config;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.oauth2.client.web.server.ServerOAuth2AuthorizedClientRepository;
+import org.springframework.security.oauth2.client.web.server.WebSessionServerOAuth2AuthorizedClientRepository;
 import org.springframework.security.web.server.csrf.*;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
@@ -27,6 +29,7 @@ public class SecurityConfig {
 
         return http
                 .authorizeExchange(exchange -> exchange
+                        .pathMatchers("/actuator/**").permitAll()
                         .pathMatchers("/", "/*.css", "/*.js", "/favicon.ico").permitAll()
                         .pathMatchers(HttpMethod.GET, "/houses/**").permitAll()
                         .anyExchange().authenticated()
@@ -66,6 +69,11 @@ public class SecurityConfig {
             exchange.getAttributeOrDefault(CsrfToken.class.getName(), Mono.empty()).subscribe();
             return chain.filter(exchange);
         };
+    }
+
+    @Bean
+    ServerOAuth2AuthorizedClientRepository authorizedClientRepository() {
+        return new WebSessionServerOAuth2AuthorizedClientRepository();
     }
 
 }
