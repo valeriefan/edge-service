@@ -81,7 +81,7 @@ spring:
   data:
     redis:
       connect-timeout: 2s
-      host: rentsphere-redis  # docker: localhost, k8s: rentsphere-redis
+      host: localhost  # docker: localhost, k8s: rentsphere-redis
       port: 6379
       timeout: 5s
       lettuce:
