@@ -66,10 +66,15 @@ public class SecurityConfig {
     @Bean
     WebFilter csrfCookieWebFilter() {
         return (exchange, chain) -> {
-            exchange.getAttributeOrDefault(CsrfToken.class.getName(), Mono.empty()).subscribe();
-            return chain.filter(exchange);
+            // Ensure the CSRF token is generated early
+            return exchange.getAttributeOrDefault(CsrfToken.class.getName(), Mono.empty())
+                    .doOnSuccess(token -> {
+                        // The token is generated and available
+                    })
+                    .then(chain.filter(exchange));
         };
     }
+
 
     @Bean
     ServerOAuth2AuthorizedClientRepository authorizedClientRepository() {
