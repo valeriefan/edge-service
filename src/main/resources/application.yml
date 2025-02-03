@@ -82,8 +82,8 @@ spring:
     redis:
       connect-timeout: 2s
       timeout: 5s
-      host: ${SPRING_REDIS_HOST}
-      port: ${SPRING_REDIS_PORT}
+      host: ${SPRING_REDIS_HOST:localhost}
+      port: ${SPRING_REDIS_PORT:6379}
       username: ${SPRING_REDIS_USERNAME}
       password: ${SPRING_REDIS_PASSWORD}
       ssl:
